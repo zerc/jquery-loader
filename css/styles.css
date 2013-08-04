@@ -12,6 +12,7 @@ body {
 
 
 /* Loader styles */
+/* If need more than one loader - use styles */
 /*.loader_container {
     display:none;
     position:absolute;

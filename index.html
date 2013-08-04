@@ -22,6 +22,9 @@
 
     <button class="example_buton">Toggle loader</button>
 
+    <br><br><button class="example_button_global_loader">Show global loader</button>
+    <p>Press `Esc` for hide global loader</p>
+
     <script type="text/javascript">
     $(function () {
         var $el = $('.example_div');
@@ -43,6 +46,28 @@
                 $el.Loader('hide');
             }
         );
+
+        $(document).Loader({
+            css: {
+                overflow: {
+                    background: 'blue'                    
+                }
+            }
+        });
+
+        $('.example_button_global_loader').click(function () {
+            $(document).Loader('show');
+        });
+
+        $(document).keyup(function (e) {
+            key = e.keyCode || e.which;
+            if (key === 27) { // esc
+                e.preventDefault();
+                $(document).Loader('hide');
+            }
+        });
+
+
     });
 
     </script>

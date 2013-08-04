@@ -5,7 +5,7 @@
 
     /* Some utils */
     function get_el_params($el) {
-        return $.extend($el.offset(), {
+        return $.extend({top: 0, left: 0}, $el.offset(), {
             width: $el.outerWidth(),
             height: $el.outerHeight()
         });
@@ -32,7 +32,8 @@
 
                 'overflow': {
                     'background': '#aeaeae',
-                    'opacity': '0.4'
+                    'opacity': '0.4',
+                    'cursor': 'wait'
                 }
             }
         },
@@ -88,9 +89,9 @@
             Loader.init().append_to($('body'));
         }
 
-        if (options === Object(options) || !options) {
+        if (options === Object(options)) {
             return this.each(function () {
-                $(this).data('loader_settings', $.extend(true, settings, options || {}));
+                $(this).data('loader_settings', $.extend(true, {}, settings, options));
             });
         }
 
