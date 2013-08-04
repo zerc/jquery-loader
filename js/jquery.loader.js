@@ -1,25 +1,42 @@
+/*global jQuery */
+/*jslint browser: true, todo: true, indent: 4 */
 (function ($) {
+    'use strict';
+
+    /* Some utils */
+    function get_el_params($el) {
+        return $.extend($el.offset(), {
+            width: $el.outerWidth(),
+            height: $el.outerHeight()
+        });
+    }
+
+    function get_middle_of(flat, el_params, gif) {
+        return (el_params[flat] - parseInt(gif.css(flat), 10)) / 2;
+    }
+
     var default_options = {
             css: {
                 'container': {
-                    'display':'none',
-                    'position':'absolute'
+                    'display': 'none',
+                    'position': 'absolute'
                 },
 
                 'gif': {
-                    'position':'absolute',
-                    'width':'32px',
-                    'height':'32px',
-                    'background':'url("i/loader-circle-32.gif") 0 0 no-repeat',
-                    'z-index':'1'
+                    'position': 'absolute',
+                    'width': '32px',
+                    'height': '32px',
+                    'background': 'url("i/loader-circle-32.gif") 0 0 no-repeat',
+                    'z-index': '1'
                 },
 
                 'overflow': {
-                    'background':'#aeaeae',
-                    'opacity':'0.4'
+                    'background': '#aeaeae',
+                    'opacity': '0.4'
                 }
             }
         },
+
         Loader = {
             initialized: false,
 
@@ -28,7 +45,7 @@
                     suffixs = ['container', 'gif', 'overflow'];
 
                 $.each(suffixs, function (i, suff) {
-                    self[suff] = $('<div>', {'class': 'loader_' + suff});                    
+                    self[suff] = $('<div>', {'class': 'loader_' + suff});
                     if (i > 0) {
                         self[suffixs[0]].append(self[suff]);
                     }
@@ -56,24 +73,13 @@
                     left: get_middle_of('width', el_params, this.gif)
                 });
 
-                return this.container.css('display', 'block');                
+                return this.container.css('display', 'block');
             },
 
-            hide: function ($el) {
+            hide: function () {
                 return this.container.css('display', 'none');
             }
-        }
-
-    function get_el_params ($el) {
-        return $.extend($el.offset(), {
-            width: $el.outerWidth(),
-            height: $el.outerHeight()
-        });
-    }
-
-    function get_middle_of (flat, el_params, gif) {
-        return (el_params[flat] - parseInt(gif.css(flat), 10)) / 2;
-    }
+        };
 
     $.fn.Loader = function (options) {
         var settings = $.extend({}, default_options);
@@ -85,7 +91,7 @@
         if (options === Object(options) || !options) {
             return this.each(function () {
                 $(this).data('loader_settings', $.extend(true, settings, options || {}));
-            });           
+            });
         }
 
         if (options === 'show' || options === 'hide') {
@@ -93,5 +99,5 @@
         }
 
         return this;
-    }
-} (jQuery));
+    };
+}(jQuery));
