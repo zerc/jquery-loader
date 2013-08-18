@@ -7,11 +7,17 @@ Small jQuery plugin for do animated gif loaders with opacity overflow over html 
 
 ## Setup
 
-Put `jquery.loader.js` into your js folder.
+Put `jquery.loader.min.js` into your js folder.
 
 Include script tag after jquery:
 
 `<script type="text/javascript" src="js/jquery.loader.js"></script>`
+
+Include css from `loader.css' inside your css file or just put
+
+`<link rel="stylesheet" href="css/loader.css" type="text/css">`.
+
+
 
 ## Usage
 
@@ -25,4 +31,14 @@ $('.foo_div').Loader({css: {
 }});
 ```
 
-See code for more details :)
+You can init many loaders on one page. Every loader elements have loader_index class and you can set different styles for:
+
+```
+.loader_0 .loader_overflow {
+  background:red;
+}
+
+.loader_1 .loader_overflow {
+  background:green;
+}
+```

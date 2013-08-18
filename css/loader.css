@@ -1,0 +1,34 @@
+/* Loader styles */
+.loader_container {
+  display:none;
+  position:absolute;
+}
+
+.loader_container .loader_gif {
+  position:absolute;
+  width:32px;
+  height:32px;
+  background:url('../i/loader-circle-32.gif') 0 0 no-repeat;
+  z-index:1;
+}
+
+.loader_container .loader_overflow {
+  background:#aeaeae;
+  opacity:0.4;
+  cursor:wait;
+}
+
+/* 
+  NOTE: if you have several loaders, you can specify styles for per loader,
+  using class .loader_<index>.
+
+  Example:
+*/
+
+.loader_0 .loader_overflow {
+  background:red;
+}
+
+.loader_1 .loader_overflow {
+  background:green;
+}

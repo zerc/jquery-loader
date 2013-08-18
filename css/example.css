@@ -1,0 +1,11 @@
+/* Example page styles */
+body {
+  padding: 5px;
+}
+
+.example_div {
+  width:50%;
+  border:2px solid #ccc;
+  padding:5px;
+  margin-bottom:5px;
+}

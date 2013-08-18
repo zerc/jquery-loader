@@ -1,76 +1,66 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="utf-8">
-    <meta name="author" content="zero13cool">
-    <title>Jquery.Loader module - example page</title>
-    <link rel="stylesheet" href="css/reset.css" type="text/css">
-    <link rel="stylesheet" href="css/styles.css" type="text/css">
+  <meta charset="utf-8">
+  <meta name="author" content="zero13cool">
+  <title>Jquery.Loader module - example page</title>
+  <link rel="stylesheet" href="css/reset.css" type="text/css">
+  <link rel="stylesheet" href="css/example.css" type="text/css">
+  <link rel="stylesheet" href="css/loader.css" type="text/css">
 
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/jquery.loader.min.js"></script>
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/jquery.loader.min.js"></script>
 </head>
 <body>
-    <div class="example_div">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </div>
+  <div class="example_div">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </div>
 
-    <button class="example_buton">Toggle loader</button>
+  <button class="example_buton">Toggle loader</button>
 
-    <br><br><button class="example_button_global_loader">Show global loader</button>
-    <p>Press `Esc` for hide global loader</p>
+  <br><br><button class="example_button_global_loader">Show global loader</button>
+  <p>Press `Esc` for hide global loader</p>
 
-    <script type="text/javascript">
+  <script type="text/javascript">
     $(function () {
-        var $el = $('.example_div');
+      var $el = $('.example_div');
 
-        $el.Loader({
-            css: {
-                overflow: {
-                    background: 'red'
-                }
-            }
-        });
+      $('.example_buton').toggle(
+        function () {
+          $el.Loader('show');
+        },
 
-        $('.example_buton').toggle(
-            function () {
-                $el.Loader('show');
-            },
+        function () {
+          $el.Loader('hide');
+        }
+      );
 
-            function () {
-                $el.Loader('hide');
-            }
-        );
+      $(document).Loader({
+        css: {
+          // overwrite default css
+          overflow: {
+              background: 'blue'
+          }
+        }
+      });
 
-        $(document).Loader({
-            css: {
-                overflow: {
-                    background: 'blue'                    
-                }
-            }
-        });
+      $('.example_button_global_loader').click(function () {
+          $(document).Loader('show');
+      });
 
-        $('.example_button_global_loader').click(function () {
-            $(document).Loader('show');
-        });
-
-        $(document).keyup(function (e) {
-            key = e.keyCode || e.which;
-            if (key === 27) { // esc
-                e.preventDefault();
-                $(document).Loader('hide');
-            }
-        });
-
-
+      $(document).keyup(function (e) {
+        key = e.keyCode || e.which;
+        if (key === 27) { // esc
+          e.preventDefault();
+          $(document).Loader('hide');
+        }
+      });
     });
-
-    </script>
-
+  </script>
 </body>
 </html>
