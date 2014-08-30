@@ -1,4 +1,4 @@
-jQuery.Loader
+jquery.simpleLoader
 ===============
 
 Small jQuery plugin for do animated gif loaders with opacity overflow over html elements.
@@ -7,11 +7,11 @@ Small jQuery plugin for do animated gif loaders with opacity overflow over html 
 
 ## Setup
 
-Put `jquery.loader.min.js` into your js folder.
+Put `jquery.simpleLoader.min.js` into your js folder.
 
 Include script tag after jquery:
 
-`<script type="text/javascript" src="js/jquery.loader.js"></script>`
+`<script type="text/javascript" src="js/jquery.simpleLoader.js"></script>`
 
 Include css from `loader.css' inside your css file or just put
 
@@ -21,7 +21,7 @@ Include css from `loader.css' inside your css file or just put
 
 ## Usage
 
-Default you can use `$('.foo_div').Loader('show')` or `$('.foo_div').Loader('hide')` methods for show/hide loader over selected element. 
+Default you can use `$('.foo_div').Loader('show')` or `$('.foo_div').Loader('hide')` methods for show/hide loader over selected element.
 
 Also you can overwrite default css for loader elements. Example:
 
