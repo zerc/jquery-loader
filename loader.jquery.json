@@ -2,7 +2,7 @@
   "name": "loader",
   "title": "jQuery Loader",
   "description": "Small plugin for create animated loader over target element.",
-  "version": "0.0.9",
+  "version": "0.9.0",
   "homepage": "http://zerc.github.io/jquery-loader/",
   "demo": "http://zerc.github.io/jquery-loader/",
   "author": {
